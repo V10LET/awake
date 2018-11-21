@@ -5,6 +5,11 @@ class Api::V1::UsersController < ApplicationController
         render json: @users, include: ['logs']
     end
 
+    def show
+        @user = User.find_by_id(params[:id])
+        render json: @user
+    end
+
     def login
       @user = User.find_by(email: params[:email])
       if @user && @user.authenticate(params[:password])
