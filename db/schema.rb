@@ -10,51 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_16_205509) do
+ActiveRecord::Schema.define(version: 2018_11_16_204847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "emotionals", force: :cascade do |t|
-    t.integer "rating"
-    t.text "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "logs", force: :cascade do |t|
     t.bigint "user_id"
+    t.integer "mental_rating"
+    t.string "mental_note"
+    t.integer "emotional_rating"
+    t.string "emotional_note"
+    t.integer "physical_rating"
+    t.string "physical_note"
+    t.integer "spiritual_rating"
+    t.string "spiritual_note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_logs_on_user_id"
-  end
-
-  create_table "mentals", force: :cascade do |t|
-    t.integer "rating"
-    t.text "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "physicals", force: :cascade do |t|
-    t.integer "rating"
-    t.text "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "spirituals", force: :cascade do |t|
-    t.integer "rating"
-    t.text "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.integer "birthday"
+    t.string "birthday"
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

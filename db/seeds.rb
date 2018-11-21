@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Log.destroy_all
+
+# Sample user with two logs
+user1 = User.create(name: 'violet', email: 'violet@me.com', password: 'password', avatar: 'me.jpg', birthday: '1996-03-01')
+
+log1 = Log.create(user: user1, mental_rating: 2, mental_note: 'I felt really overwhelmed',
+    emotional_rating: 2, emotional_note: 'I felt disregulated because lots of thinking',
+    physical_rating: 4, physical_note: 'My body did not hurt as much today',
+    spiritual_rating: 3, spiritual_note: 'I had hope despite difficulties')
+
+log2 = Log.create(user: user1, mental_rating: 4, mental_note: 'My mind was a little foggy but I felt confident',
+    emotional_rating: 5, emotional_note: 'I felt great today',
+    physical_rating: 3, physical_note: 'Only mild body pain',
+    spiritual_rating: 1, spiritual_note: 'This area felt fairly vacant today')

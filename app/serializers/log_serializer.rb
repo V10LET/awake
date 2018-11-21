@@ -1,7 +1,7 @@
 class LogSerializer < ActiveModel::Serializer
     belongs_to :user
-    has_one :mental
-    has_one :emotional
-    has_one :physical
-    has_one :spiritual
+    attributes :id, :mental_rating, :mental_note,
+        :emotional_rating, :emotional_note,
+        :physical_rating, :physical_note,
+        :spiritual_rating, :spiritual_note
 end
