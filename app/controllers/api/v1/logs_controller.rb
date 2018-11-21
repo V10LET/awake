@@ -1,10 +1,5 @@
 class Api::V1::LogsController < ApplicationController
 
-    def index
-        @logs = Log.all
-        render json: @logs
-    end
-    
     def create
         me = try_get_user
         if me == nil
