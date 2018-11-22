@@ -3,7 +3,7 @@ class Api::V1::LogsController < ApplicationController
     def create
         me = try_get_user
         if me == nil
-            render json: {message: 'you not user'}
+            render json: {message: 'Something went wrong, please try again.'}
         else
             log_data = log_params
             log_data[:user] = me
