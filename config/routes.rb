@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         post '/login', to: 'users#login'
         get '/profile', to: 'users#profile'
         post '/signup', to: 'users#create'
-        resources :logs, only: [:create]
+        resources :logs, only: [:create, :update]
       end
     end
 

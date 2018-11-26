@@ -23,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
         me = try_get_user
         if me == nil
           render :json => {
-            :message => "you cannot view this profile"
+            :message => "You cannot view this profile."
           }, status: 403
         end
 
@@ -37,8 +37,12 @@ class Api::V1::UsersController < ApplicationController
             render json: { user: UserSerializer.new(@user), token: @token }, status: :created
 
         else
-            render json: { error: 'failed to create user' }, status: :not_acceptable
+            render json: { error: 'Failed to create user...' }, status: :not_acceptable
         end
+    end
+
+    def update
+
     end
 
     private
