@@ -25,10 +25,14 @@ class Api::V1::LogsController < ApplicationController
         if me == nil
             render json: {message: 'Something went wrong, please try again.'}
         else
-            log_data = log_params
-            log_data[:user] = me
-            @log = log.update(log_data)
-            render json: @log, status: :created
+            if log == nil
+                render json: {message: 'MEEEEEEP.'}
+            else
+                log_data = log_params
+                log_data[:user] = me
+                @log = log.update(log_data)
+                render json: @log, status: :created
+            end
         end
     end
 
