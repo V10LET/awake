@@ -1,4 +1,5 @@
 class Api::V1::LogsController < ApplicationController
+    include ActiveModel::Serialization
 
     def create
         me = try_get_user
@@ -12,15 +13,22 @@ class Api::V1::LogsController < ApplicationController
         end
     end
 
+    def show
+        @log = Log.find_by_id(params[:id])
+        render json: @log
+    end
+
     def update
         me = try_get_user
+        log = Log.find_by_id(params[:id])
+        puts @log
         if me == nil
             render json: {message: 'Something went wrong, please try again.'}
         else
             log_data = log_params
             log_data[:user] = me
-            @log = Log.update(log_data)
-            render json: { log: LogSerializer.update(@log) }, status: :created
+            @log = log.update(log_data)
+            render json: @log, status: :created
         end
     end
 
