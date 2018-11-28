@@ -38,7 +38,6 @@ class Api::V1::UsersController < ApplicationController
         if @user.valid?
             @token = JWT.encode({ user_id: @user.id }, ENV['JWT_SECRET'], 'HS256')
             render json: { user: UserSerializer.new(@user), token: @token }, status: :created
-
         else
             render json: { error: 'Failed to create user...' }, status: :not_acceptable
         end

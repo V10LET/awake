@@ -2,7 +2,7 @@ User.destroy_all
 Log.destroy_all
 
 # Sample user with two logs
-user1 = User.create(name: 'violet', email: 'violet@me.com', password: 'password', avatar: 'me.jpg', birthday: '1996-03-01')
+user1 = User.create(name: 'violet', email: 'vi@me.com', password: 'hi', avatar: 'https://bit.ly/2rbu2F6', birthday: '1996-03-01')
 
 log1 = Log.create(user: user1, mental_rating: 2, mental_note: 'I felt really overwhelmed',
     emotional_rating: 2, emotional_note: 'I felt disregulated because lots of thinking',
