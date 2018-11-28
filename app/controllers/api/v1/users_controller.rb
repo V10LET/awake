@@ -1,3 +1,6 @@
+require 'net/http'
+require 'json'
+
 class Api::V1::UsersController < ApplicationController
 
     def index
@@ -43,6 +46,15 @@ class Api::V1::UsersController < ApplicationController
 
     def update
 
+    end
+
+    def horoscope
+        url = URI.parse('http://horoscope-api.herokuapp.com/horoscope/today/' + params[:sign])
+        req = Net::HTTP::Get.new(url.to_s)
+        res = Net::HTTP.start(url.host, url.port) {|http|
+          http.request(req)
+        }
+        render json: JSON.parse(res.body)
     end
 
     private
