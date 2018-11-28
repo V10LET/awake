@@ -21,7 +21,6 @@ class Api::V1::LogsController < ApplicationController
     def update
         me = try_get_user
         log = Log.find_by_id(params[:id])
-        puts @log
         if me == nil
             render json: {message: 'Something went wrong, please try again.'}
         else
