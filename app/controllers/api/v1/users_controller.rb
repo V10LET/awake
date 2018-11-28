@@ -44,17 +44,12 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update
-        me = try_get_user
         user = User.find_by_id(params[:id])
-        if me == nil
-            render json: {message: 'Something went wrong, please try again.'}
+        if user == nil
+            render json: {message: 'MEEEEEEP.'}
         else
-            if user == nil
-                render json: {message: 'MEEEEEEP.'}
-            else
-                @log = user.update(user_params)
-                render json: @user, status: :created
-            end
+            @log = user.update(user_params)
+            render json: @user, status: :created
         end
     end
 
