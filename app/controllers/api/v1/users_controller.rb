@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
 
     def index
         @users = User.all
-        render json: @users, include: ['logs']
+        render json: @users, include: ['logs', 'timed_logs']
     end
 
     def show
@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
       if @user && @user.authenticate(params[:password])
         render :json => { :token => JWT.encode({ user_id: @user.id }, ENV['JWT_SECRET'], 'HS256') }
       else
-        render :json => { :message => "Invalid credentials" }, status: 403
+        render :json => { :message => "Your username or password is incorrect..." }, status: 403
       end
     end
 
@@ -39,14 +39,14 @@ class Api::V1::UsersController < ApplicationController
             @token = JWT.encode({ user_id: @user.id }, ENV['JWT_SECRET'], 'HS256')
             render json: { user: UserSerializer.new(@user), token: @token }, status: :created
         else
-            render json: { error: 'Failed to create user...' }, status: :not_acceptable
+            render json: { error: 'Oops, something went wrong! Please try again...' }, status: :not_acceptable
         end
     end
 
     def update
         user = User.find_by_id(params[:id])
         if user == nil
-            render json: {message: 'MEEEEEEP.'}
+            render json: {message: 'Could not update user.'}
         else
             @log = user.update(user_params)
             render json: @user, status: :created

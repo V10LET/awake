@@ -1,5 +1,4 @@
 class Api::V1::LogsController < ApplicationController
-    include ActiveModel::Serialization
 
     def create
         me = try_get_user

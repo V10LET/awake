@@ -1,0 +1,2 @@
+class TimedLogsController < ApplicationController
+end
