@@ -48,5 +48,4 @@ ActiveRecord::Schema.define(version: 2018_11_30_165104) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "timed_logs", "users"
 end
