@@ -6,8 +6,8 @@ Rails.application.routes.draw do
         get '/profile', to: 'users#profile'
         post '/signup', to: 'users#create'
         get '/horoscope/:sign', to: 'users#horoscope'
-        resources :logs, only: [:create, :show, :update]
-
+        resources :logs
+        resources :timed_logs, only: [:index, :create, :show]
       end
     end
 
