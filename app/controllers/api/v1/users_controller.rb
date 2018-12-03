@@ -11,6 +11,7 @@ class Api::V1::UsersController < ApplicationController
     def show
         @user = User.find_by_id(params[:id])
         render json: @user
+        # {user: @user, img_url: url_for(@user.image) }
     end
 
     def login
