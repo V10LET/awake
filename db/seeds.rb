@@ -14,4 +14,4 @@ log2 = Log.create(user: user1, mental_rating: 4, mental_note: 'My mind was a lit
     physical_rating: 3, physical_note: 'Only mild body pain',
     spiritual_rating: 1, spiritual_note: 'This area felt fairly vacant today')
 
-TimedLog.create(user: user1, time: '03:47:21')
+TimedLog.create(user: user1, time: '100000')
