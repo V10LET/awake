@@ -34,6 +34,11 @@ class Api::V1::LogsController < ApplicationController
         end
     end
 
+    def destroy
+        @log = Log.find_by_id(params[:id])
+        @log.destroy
+    end
+
     private
 
     def log_params
