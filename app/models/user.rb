@@ -4,5 +4,5 @@ class User < ApplicationRecord
     has_many :timed_logs
 
     validates :email, uniqueness: { case_sensitive: false }
-    validates :name, :email, :birthday, :password, presence: true
+    validates :name, :email, :birthday, presence: true
 end
