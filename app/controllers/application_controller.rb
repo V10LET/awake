@@ -1,4 +1,11 @@
 class ApplicationController < ActionController::API
+    include ActionController::MimeResponds
+
+    def fallback_index_html
+     respond_to do |format|
+       format.html { render body: Rails.root.join('public/index.html').read }
+     end
+    end
 
     def try_get_user
         @authorization_header = request.headers["Authorization"]
@@ -14,5 +21,5 @@ class ApplicationController < ActionController::API
           return nil
         end
     end
-    
+
 end

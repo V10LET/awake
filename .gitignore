@@ -24,3 +24,5 @@
 
 # direnv
 .envrc
+
+postgres/

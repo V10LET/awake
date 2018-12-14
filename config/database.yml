@@ -23,7 +23,11 @@ default: &default
 
 development:
   <<: *default
-  database: awake-backend_development
+  database: awake
+  host: localhost
+  port: 5432
+  username: docker
+  password: docker
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: awake-backend_production
-  username: awake-backend
-  password: <%= ENV['AWAKE-BACKEND_DATABASE_PASSWORD'] %>
+  database: awakebackend
+  username: awakebackend
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
