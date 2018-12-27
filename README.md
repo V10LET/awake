@@ -11,6 +11,6 @@ The backend also hosts a proxy API to allow each user to fetch their personalize
 Built using React and JavaScript, I implemented Redux and MaterialUI to centralize state and support stronger JSS (and therefore UI/UX) features. To play around with the demo, click [here](http://awake.us-east-2.elasticbeanstalk.com/).
 
 ## Upcoming
-I'd like to develop a more minfully-inspired quotes API for the users dashboard as well as add more meditation timer features including: multiple starting and ending bell options, alpha wave frequencies, and potentially abient background sound.
+I'd like to develop a more mindfully-inspired quotes API for the users dashboard as well as add more meditation timer features including: multiple starting and ending bell options, alpha wave frequencies, and potentially ambient background sound.
 
-*If you have any suggestions or stumble upon any bugs in the process of playing, please create an issue. Much appreciated!*
+*If you have any suggestions or stumble upon any bugs in the process of playing, please create an issue.*
